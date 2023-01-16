@@ -5,4 +5,8 @@ import tkinter.font as font
 from tkinter import dialog
 
 if __name__ == '__main__':
-    pass
+    # creating root window
+    root = tkinter.Tk()
+    root.title('MP3 music player')
+    # init mixer
+    mixer.init()
