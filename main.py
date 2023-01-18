@@ -36,11 +36,23 @@ def resume_song():
 
 
 def prev_song():
-    pass
+    previous_song = songs_list.curselection()[0] - 1
+    temp2 = songs_list.get(previous_song)
+    mixer.music.load(temp2)
+    mixer.music.play()
+    songs_list.selection_clear(0, tkinter.END)
+    songs_list.activate(previous_song)
+    songs_list.selection_set(previous_song)
 
 
 def next_song():
-    pass
+    following_song = songs_list.curselection()[0] + 1
+    temp2 = songs_list.get(following_song)
+    mixer.music.load(temp2)
+    mixer.music.play()
+    songs_list.selection_clear(0, tkinter.END)
+    songs_list.activate(following_song)
+    songs_list.selection_set(following_song)
 
 
 if __name__ == '__main__':
