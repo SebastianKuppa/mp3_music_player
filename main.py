@@ -1,3 +1,4 @@
+import os
 from pygame import mixer
 import os
 import tkinter
@@ -6,9 +7,12 @@ from tkinter import filedialog
 
 
 def add_songs():
-    temp_song = filedialog.askopenfilename(initialdir='/', title='Choose a song..', filetypes=(('mp3 files', '*.mp3'),))
-    # for s in temp_song:
-    #     s.replace()
+    temp_song = filedialog.askopenfilenames(initialdir='/',
+                                            title='Choose a song..',
+                                            filetypes=(('mp3 files', '*.mp3'),))
+    for s in temp_song:
+        s.replace(os.path.dirname(s), '')
+        songs_list.insert(tkinter.END, s)
 
 
 def delete_songs():
