@@ -2,7 +2,46 @@ from pygame import mixer
 import os
 import tkinter
 import tkinter.font as font
-from tkinter import dialog
+from tkinter import filedialog
+
+
+def add_songs():
+    temp_song = filedialog.askopenfilename(initialdir='/', title='Choose a song..', filetypes=(('mp3 files', '*.mp3'),))
+    # for s in temp_song:
+    #     s.replace()
+
+
+def delete_songs():
+    curr_song = songs_list.curselection()
+    songs_list.delete(curr_song[0])
+
+
+def play_song():
+    song = songs_list.get(tkinter.ACTIVE)
+    mixer.music.load(song)
+    mixer.music.play()
+
+
+def pause_song():
+    mixer.music.pause()
+
+
+def stop_song():
+    mixer.music.stop()
+    songs_list.selection_clear(tkinter.ACTIVE)
+
+
+def resume_song():
+    mixer.music.unpause()
+
+
+def prev_song():
+    pass
+
+
+def next_song():
+    pass
+
 
 if __name__ == '__main__':
     # creating root window
@@ -11,7 +50,7 @@ if __name__ == '__main__':
     # init mixer
     mixer.init()
     # init listbox for playlist
-    songs_list = tkinter.Listbox(root, selectmode=SINGLE, bg="black", fg="white", font=('arial', 15), height=12, width=47,
+    songs_list = tkinter.Listbox(root, selectmode=tkinter.SINGLE, bg="black", fg="white", font=('arial', 15), height=12, width=47,
                                  selectbackground="gray", selectforeground="black")
     songs_list.grid(columnspan=9)
     # font for the music player
