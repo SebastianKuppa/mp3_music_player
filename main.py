@@ -70,7 +70,7 @@ if __name__ == '__main__':
                                  selectbackground="gray", selectforeground="black")
     songs_list.grid(columnspan=9)
     # font for the music player
-    custom_font = tkinter.font.Font(family='Helvetica')
+    custom_font = font.Font(family='Helvetica')
     # init play button
     play_button = tkinter.Button(master=root, text='PLAY', width=7, command=play_song)
     play_button['font'] = custom_font
